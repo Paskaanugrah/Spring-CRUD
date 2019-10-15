@@ -11,9 +11,12 @@ public class Product {
 	private String nama;
 	private String merk;
 	private String madein;
-	private Double price;
+	private Long price;
 	
-	protected Product() {
+	
+	
+	public Product() {
+		super();
 	}
 	
 	@Id
@@ -42,10 +45,10 @@ public class Product {
 	public void setMadein(String madein) {
 		this.madein = madein;
 	}
-	public Float getPrice() {
+	public Long getPrice() {
 		return price;
 	}
-	public void setPrice(Double price) {
+	public void setPrice(Long price) {
 		this.price = price;
 	}
 	

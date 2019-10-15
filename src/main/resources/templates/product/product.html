@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
 <title>Product</title>
@@ -23,11 +23,13 @@
 </head>
 <body>
 	<div class="container">
-		<div class="center">
-			<h4>LIST PRODUCT</h4>
+		<div>
+			<h4 class="text-center">LIST PRODUCT</h4>
 			<br>
 			<br>
 		</div>
+		<a href="/product/new" class="btn btn-primary">Tambah Produk</a>
+		<br/>
 		<table class="table table-striped">
 			<thead class="thead-dark">
 				<tr>
@@ -46,10 +48,15 @@
 					<td th:text="${product.merk}"></td>
 					<td th:text="${product.madein}"></td>
 					<td th:text="${product.price}"></td>
+					<td>
+						<a th:href="@{'/product/edit/' + ${product.id}}">Edit</a>
+						<a th:href="@{'/product/delete/' + ${product.id}}" onclick="return confirm('yakin ingin hapus?')">Hapus</a>
+					</td>
 				</tr>
 			</tbody>
 		</table>
-		<a href="/">HOME</a>
+		<hr>
+		<button class="btn btn-light"><a href="/">HOME</a></button>
 	</div>
 </body>
 </html>
