@@ -1,26 +1,36 @@
 package com.paskaaa.SpringProject.entity;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+
+import lombok.ToString;
 
 @Entity
+@ToString
 public class Product {
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	private String nama;
 	private String merk;
 	private String madein;
 	private Long price;
 	
-	
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "shop_id", referencedColumnName = "id")
+	private Shop shop;
 	
 	public Product() {
 		super();
 	}
-	
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+
 	public Integer getId() {
 		return id;
 	}
@@ -51,6 +61,16 @@ public class Product {
 	public void setPrice(Long price) {
 		this.price = price;
 	}
+
+	public Shop getShop() {
+		return shop;
+	}
+
+	public void setShop(Shop shop) {
+		this.shop = shop;
+	}
 	
-	
+	public String toString() {
+		return getNama() + " - " + getShop();
+	}
 }

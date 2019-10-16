@@ -42,11 +42,17 @@
 				<label for="harga">Harga</label> <input type="number"
 					class="form-control" id="harga" th:field="*{price}" required="required">
 			</div>
+			<div class="form-group">
+				<label for="toko">Toko</label>
+				<select th:field="*{shop.id}">
+					<option th:each="shop :${shops}" th:value="${shop.id}" th:text="${shop.name}"></option>
+				</select>
+			</div>
 		
 			<button type="submit" class="btn btn-primary">Submit</button>
 
 		</form>
-		<a href="/Product">Batal</a>
+		<a href="/product">Batal</a>
 	</div>
 </body>
 </html>
