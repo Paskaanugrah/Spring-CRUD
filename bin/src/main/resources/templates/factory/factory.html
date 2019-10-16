@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
 <title>Product</title>
@@ -23,33 +23,36 @@
 </head>
 <body>
 	<div class="container">
-		<div class="center">
-			<h4>LIST PRODUCT</h4>
+		<div>
+			<h4 class="text-center">LIST PRODUCT</h4>
 			<br>
 			<br>
 		</div>
+		<a href="/shop/new" class="btn btn-primary">Tambah Produk</a>
+		<br/>
 		<table class="table table-striped">
 			<thead class="thead-dark">
 				<tr>
 					<th>Product ID</th>
 					<th>Nama</th>
-					<th>Merk</th>
-					<th>Dibuat di</th>
-					<th>Harga</th>
+					<th>Alamat</th>
 					<th>Aksi</th>
 				</tr>
 			</thead>
 			<tbody class="">
-				<tr th:each="product :${products}">
-					<td th:text="${product.id}"></td>
-					<td th:text="${product.nama}"></td>
-					<td th:text="${product.merk}"></td>
-					<td th:text="${product.madein}"></td>
-					<td th:text="${product.price}"></td>
+				<tr th:each="shop :${shops}">
+					<td th:text="${shop.id}"></td>
+					<td th:text="${shop.name}"></td>
+					<td th:text="${shop.address}"></td>
+					<td>
+						<a th:href="@{'/shop/edit/' + ${shop.id}}">Edit</a>
+						<a th:href="@{'/shop/delete/' + ${shop.id}}" onclick="return confirm('yakin ingin hapus?')">Hapus</a>
+					</td>
 				</tr>
 			</tbody>
 		</table>
-		<a href="/">HOME</a>
+		<hr>
+		<button class="btn btn-light"><a href="/">HOME</a></button>
 	</div>
 </body>
 </html>
