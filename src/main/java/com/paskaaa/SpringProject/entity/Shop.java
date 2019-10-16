@@ -17,13 +17,16 @@ import lombok.ToString;
 
 @Entity
 @ToString
+@Table(name = "shop")
 public class Shop {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	
+	@Column(name = "name")
 	private String name;
+	@Column(name = "address")
 	private String address;
 	
 	@OneToMany(mappedBy = "shop" ,cascade = CascadeType.ALL)

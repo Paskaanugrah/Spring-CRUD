@@ -44,7 +44,7 @@
 					<td th:text="${factory.name}"></td>
 					<td th:text="${factory.type}"></td>
 					<td th:text="${factory.address}"></td>
-					<td><a th:href="@{'/factory/edit/' + ${factory.id}}">Edit</a> <a
+					<td><a th:href="@{'/factory/edit/' + ${factory.id}}">Edit</a> | <a
 						th:href="@{'/factory/delete/' + ${factory.id}}"
 						onclick="return confirm('yakin ingin hapus ?')">Hapus</a></td>
 				</tr>

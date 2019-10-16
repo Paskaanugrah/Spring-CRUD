@@ -48,7 +48,7 @@
 						<td th:text="${product.madein}"></td>
 						<td th:text="${product.price}"></td>
 						<td th:text="${product.shop.id}"</td>
-						<td><a th:href="@{'/product/edit/' + ${product.id}}">Edit</a>
+						<td><a th:href="@{'/product/edit/' + ${product.id}}">Edit</a> | 
 							<a th:href="@{'/product/delete/' + ${product.id}}"
 							onclick="return confirm('yakin ingin hapus?')">Hapus</a></td>
 					</tr>

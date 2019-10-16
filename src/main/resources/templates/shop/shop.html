@@ -45,7 +45,7 @@
 					<td th:text="${shop.name}"></td>
 					<td th:text="${shop.address}"></td>
 					<td>
-						<a th:href="@{'/shop/edit/' + ${shop.id}}">Edit</a>
+						<a th:href="@{'/shop/edit/' + ${shop.id}}">Edit</a> |
 						<a th:href="@{'/shop/delete/' + ${shop.id}}" onclick="return confirm('yakin ingin hapus?')">Hapus</a>
 					</td>
 				</tr>

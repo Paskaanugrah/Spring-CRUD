@@ -8,19 +8,25 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
 import lombok.ToString;
 
 @Entity
 @ToString
+@Table(name = "product")
 public class Product {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
+	@Column(name = "name")
 	private String nama;
+	@Column(name = "merk")
 	private String merk;
+	@Column(name = "madein")
 	private String madein;
+	@Column(name = "price")
 	private Long price;
 	
 	@ManyToOne(fetch = FetchType.LAZY)
