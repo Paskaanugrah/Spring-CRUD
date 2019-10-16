@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
-<title>Dashboard</title>
+<title>Product</title>
 
 <link rel="stylesheet"
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
@@ -19,17 +19,40 @@
 	src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
 	integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
 	crossorigin="anonymous"></script>
-	
+
 </head>
 <body>
-	<div class="text-center container" style="margin-top:20px;">
-	<h2>Hai, welcome to dashboard</h2>
-	<hr>
-		<h3><a href="/product">List Product</a></h3>
-		<h3><a href="/shop">List Shop</a></h3>
-		<h3><a href="/factory">List Factory</h3>
-	<hr>
-	<hr>
+	<div class="container">
+		<div>
+			<h4 class="text-center">LIST PRODUCT</h4>
+			<br>
+			<br>
+		</div>
+		<a href="/shop/new" class="btn btn-primary">Tambah Produk</a>
+		<br/>
+		<table class="table table-striped">
+			<thead class="thead-dark">
+				<tr>
+					<th>Product ID</th>
+					<th>Nama</th>
+					<th>Alamat</th>
+					<th>Aksi</th>
+				</tr>
+			</thead>
+			<tbody class="">
+				<tr th:each="shop :${shops}">
+					<td th:text="${shop.id}"></td>
+					<td th:text="${shop.name}"></td>
+					<td th:text="${shop.address}"></td>
+					<td>
+						<a th:href="@{'/shop/edit/' + ${shop.id}}">Edit</a>
+						<a th:href="@{'/shop/delete/' + ${shop.id}}" onclick="return confirm('yakin ingin hapus?')">Hapus</a>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		<hr>
+		<button class="btn btn-light"><a href="/">HOME</a></button>
 	</div>
 </body>
 </html>

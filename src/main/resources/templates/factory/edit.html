@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
-<title>Dashboard</title>
+<title>Edit pabrik</title>
 
 <link rel="stylesheet"
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
@@ -19,17 +19,37 @@
 	src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
 	integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
 	crossorigin="anonymous"></script>
-	
+
 </head>
 <body>
-	<div class="text-center container" style="margin-top:20px;">
-	<h2>Hai, welcome to dashboard</h2>
-	<hr>
-		<h3><a href="/product">List Product</a></h3>
-		<h3><a href="/shop">List Shop</a></h3>
-		<h3><a href="/factory">List Factory</h3>
-	<hr>
-	<hr>
+	<div class="container">
+		<h3>Ubah pabrik</h3>
+		</br>
+		<form th:action="@{/factory/save}" th:object="${factory}"
+			method="post">
+			<div class="form-group">
+				<input type="hidden" class="form-control " id="id" th:field="*{id}"
+					required="required">
+			</div>
+			<div class="form-group">
+				<label for="nama">Nama</label> <input type="text"
+					class="form-control" id="nama" th:field="*{name}"
+					required="required">
+			</div>
+			<div class="form-group">
+				<label for="type">Jenis</label> <input type="text"
+					class="form-control" id="type" th:field="*{type}"
+					required="required">
+			</div>
+			<div class="form-group">
+				<label for="alamat">Alamat</label> <input type="text"
+					class="form-control" id="alamat" th:field="*{address}"
+					required="required">
+			</div>
+			<button type="submit" class="btn btn-primary">Submit</button>
+
+		</form>
+		<a href="/factory">Batal</a>
 	</div>
 </body>
 </html>

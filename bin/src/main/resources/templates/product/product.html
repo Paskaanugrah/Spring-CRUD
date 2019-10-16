@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
-<title>Factory</title>
+<title>Product</title>
 
 <link rel="stylesheet"
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
@@ -22,32 +22,50 @@
 
 </head>
 <body>
-	<div class="container mt-2">
+	<div class="container">
 		<div>
-			<h4 class="text-center">LIST Factory</h4>
+			<h4 class="text-center">LIST PRODUCT</h4>
 			<br> <br>
 		</div>
-		<a href="/factory/new" class="btn btn-primary">Tambah data pabrik</a> <br />
+		<a href="/product/new" class="btn btn-primary">Tambah Produk</a> <br />
 		<table class="table table-striped">
 			<thead class="thead-dark">
 				<tr>
-					<th>Pabrik ID</th>
+					<th>Product ID</th>
 					<th>Nama</th>
-					<th>Jenis</th>
-					<th>Alamat</th>
+					<th>Merk</th>
+					<th>Dibuat di</th>
+					<th>Harga</th>
+					<th>No Toko</th>
 					<th>Aksi</th>
 				</tr>
 			</thead>
 			<tbody class="">
-				<tr th:each="factory :${factorys}">
-					<td th:text="${factory.id}"></td>
-					<td th:text="${factory.name}"></td>
-					<td th:text="${factory.type}"></td>
-					<td th:text="${factory.address}"></td>
-					<td><a th:href="@{'/factory/edit/' + ${factory.id}}">Edit</a> <a
-						th:href="@{'/factory/delete/' + ${factory.id}}"
-						onclick="return confirm('yakin ingin hapus ?')">Hapus</a></td>
+					<tr th:each="product :${products}">
+						<td th:text="${product.id}"></td>
+						<td th:text="${product.nama}"></td>
+						<td th:text="${product.merk}"></td>
+						<td th:text="${product.madein}"></td>
+						<td th:text="${product.price}"></td>
+						<td th:text="${product.shop.id}"</td>
+						<td><a th:href="@{'/product/edit/' + ${product.id}}">Edit</a>
+							<a th:href="@{'/product/delete/' + ${product.id}}"
+							onclick="return confirm('yakin ingin hapus?')">Hapus</a></td>
+					</tr>
+			</tbody>
+		</table>
+		<hr>
+		<table class="table table-striped">
+			<thead class="thead-dark">
+				<tr>
+					<th>No Toko</th>
+					<th>Nama</th>
 				</tr>
+			</thead>
+			<tbody class="">
+					<tr th:each="shop :${shops}">
+						<td th:text="${shop.id}"></td>
+						<td th:text="${shop.name}"></td>
 			</tbody>
 		</table>
 		<hr>
